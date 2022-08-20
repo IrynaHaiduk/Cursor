@@ -30,9 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const applePrice = 15.678;
   const orangePrice = 123.965;
   const cherryPrice = 90.2345;
+  const maxPrice = Math.max(applePrice, orangePrice, cherryPrice);
+  const minPrice = Math.min(applePrice, orangePrice, cherryPrice);
   const sumPrices = applePrice + orangePrice + cherryPrice;
   const roundedSumPrices = Math.floor(applePrice) + Math.floor(orangePrice) + Math.floor(cherryPrice);
   const hundredsRoundedSum = Number((Math.ceil((sumPrices) * 100) / 100).toFixed());
+  const isSumEven = Math.floor(sumPrices) % 2 === 0;
   const moneyAmout = 500;
   const restMoney = moneyAmout - sumPrices;
   const middlePrice = Number((sumPrices / 3).toFixed(2));
@@ -41,30 +44,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const netCost = sumPrices / 2;
   const netProfit = netCost - randomDiscount;
 
-  document.writeln(Math.max(applePrice, orangePrice, cherryPrice));
-  document.writeln(Math.min(applePrice, orangePrice, cherryPrice));
-  document.writeln(sumPrices);
-  document.writeln(roundedSumPrices);
-  document.writeln(hundredsRoundedSum);
-  document.writeln(Math.floor(sumPrices) % 2 === 0);
-  document.writeln(restMoney);
-  document.writeln(middlePrice);
-  document.writeln(randomDiscount);
-  document.writeln(discountPrice);
-  document.writeln(netCost);
-  document.writeln(netProfit);
+  console.log(maxPrice);
+  console.log(minPrice);
+  console.log(sumPrices);
+  console.log(roundedSumPrices);
+  console.log(hundredsRoundedSum);
+  console.log(isSumEven);
+  console.log(restMoney);
+  console.log(middlePrice);
+  console.log(randomDiscount);
+  console.log(discountPrice);
+  console.log(netCost);
+  console.log(netProfit);
 
-  document.writeln(`Max price: ${Math.max(applePrice, orangePrice, cherryPrice)}`);
-  document.writeln(`Min price: ${Math.min(applePrice, orangePrice, cherryPrice)}`);
-  document.writeln(`Sum of all prices: ${sumPrices}`);
-  document.writeln(`Integer sum of prices: ${roundedSumPrices}`);
-  document.writeln(`Price rounded to hundreds: ${hundredsRoundedSum}`);
-  document.writeln(`Is the sum of prices an even number?: ${Math.floor(sumPrices) % 2 === 0}`);
-  document.writeln(`Amount from the rest: ${restMoney}`);
-  document.writeln(`Average sum: ${middlePrice}`);
-  document.writeln(`Random discount: ${randomDiscount}`);
-  document.writeln(`Sum with discount: ${discountPrice}`);
-  document.writeln(`Net cost: ${netCost}`);
-  document.writeln(`Net profit: ${netProfit}`);
+  document.writeln(`
+                  Max price: ${maxPrice}; <br>
+                  Min price: ${minPrice};<br>
+                  Sum of all prices: ${sumPrices};<br>
+                  Integer sum of prices: ${roundedSumPrices};<br>
+                  Price rounded to hundreds: ${hundredsRoundedSum};<br>
+                  Is the sum of prices an even number?: ${isSumEven};<br>
+                  Amount from the rest: ${restMoney};<br>
+                  Average sum: ${middlePrice};<br>
+                  Random discount: ${randomDiscount};<br>
+                  Sum with discount: ${discountPrice};<br>
+                  Net cost: ${netCost};<br>
+                  Net profit: ${netProfit};
+                  `
+                  );
+
 });
-
