@@ -24,48 +24,34 @@ FALSE – не потрібно. Використовуйте функцію con
 
 
 document.addEventListener('DOMContentLoaded', () => {
-
-  let n;
-  let m;
+  let number1;
+  let number2;
   let skipEvenNum;
-
   do {
-    n = prompt('Enter first integer number');
-  } while (!Number.isInteger(Number(n)) || n == null);
-
+    number1 = prompt('Enter first integer number');
+  } while (!Number.isInteger(Number(number1)) || number1 == null);
   do {
-    m = prompt('Enter second integer number');
-  } while (!Number.isInteger(Number(m)) || m == null);
-
+    number2 = prompt('Enter second integer number');
+  } while (!Number.isInteger(Number(number2)) || number2 == null);
   skipEvenNum = confirm('Do you want to skip even numbers?');
-
-  calcSum(n, m);
-
-  function calcSum(n, m) {
-
-    if (n > m) {
-      let a = n;
-      n = m;
-      m = a;
+  calcSum(number1, number2);
+  function calcSum(number1, number2) {
+    if (number1 > number2) {
+      let number3 = number1;
+      number1 = number2;
+      number2 = number3;
     }
-
     let sum = 0;
-    n = +n;
-    m = +m;
-
-    for (let i = n; i <= m; i++) {
-      if (skipEvenNum) {
-        if (!(i % 2)) {
-          continue;
-        } else {
-          sum += i;
-        }
+    number1 = +number1;
+    number2 = +number2;
+    for (let i = number1; i <= number2; i++) {
+      let isEven = !(i % 2);
+      if (skipEvenNum && isEven) {
+        continue;
       } else {
         sum += i;
       }
     }
-
     document.writeln(sum);
-  }
-
+  };
 });

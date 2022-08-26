@@ -34,12 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const minPrice = Math.min(applePrice, orangePrice, cherryPrice);
   const sumPrices = applePrice + orangePrice + cherryPrice;
   const roundedSumPrices = Math.floor(applePrice) + Math.floor(orangePrice) + Math.floor(cherryPrice);
-  const hundredsRoundedSum = Number((Math.ceil((sumPrices) * 100) / 100).toFixed());
+  const hundredsRoundedSum = Number((Math.round((sumPrices) * 100) / 100).toFixed());
   const isSumEven = Math.floor(sumPrices) % 2 === 0;
   const moneyAmout = 500;
   const restMoney = moneyAmout - sumPrices;
   const middlePrice = Number((sumPrices / 3).toFixed(2));
-  const randomDiscount = Math.random() * (10 - 7) + 7;
+  const range1 = 7;
+  const range2 = 10;
+  const randomDiscount = Math.random() * (range2 - range1) + range1;
   const discountPrice = Number((sumPrices - randomDiscount).toFixed(2));
   const netCost = sumPrices / 2;
   const netProfit = netCost - randomDiscount;
